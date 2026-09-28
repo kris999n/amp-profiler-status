@@ -1,0 +1,1 @@
+{"name": "Emissary LEAD DI_20260928_180815", "span": 120, "total_epochs": 120, "best_epoch": null, "best_esr": null, "points": [], "live": {"phase": "init search", "epoch": 0, "total_epochs": 120, "batch": 70, "total_batches": 7200, "epoch_eta_s": 497.5566482884543, "run_eta_s": null, "line": "Finder et godt startpunkt: 1% (8m17s tilbage)"}, "verdict": null}

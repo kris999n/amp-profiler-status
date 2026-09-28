@@ -1,0 +1,211 @@
+/* Colour values here are fallbacks only - app.js overwrites every one of
+   these custom properties from /api/bootstrap (ampprofiler.gui.theme), which
+   is the real source of truth. Kept close to the desktop palette so the page
+   never flashes an unrelated theme before that fetch resolves. */
+:root {
+  --bg: #131216;
+  --bg-panel: #1A191F;
+  --bg-raised: #212027;
+  --border: #302F39;
+  --border-soft: #26252D;
+  --text: #EAE8EF;
+  --text-dim: #9C98A8;
+  --text-faint: #6E6A7A;
+  --accent: #F0873A;
+  --accent-soft: #38251A;
+  --ok: #5AC48C;
+  --ok-soft: #172C22;
+  --warn: #E7B44E;
+  --warn-soft: #2E2617;
+  --err: #E4685E;
+  --err-soft: #2E1A1A;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  padding-bottom: 24px;
+}
+
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 16px 0 16px;
+  position: sticky;
+  top: 0;
+  background: var(--bg);
+  z-index: 10;
+}
+
+.brand {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text);
+  letter-spacing: 0.3px;
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.tab {
+  background: transparent;
+  border: none;
+  color: var(--text-dim);
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+  color: var(--text);
+  border-bottom: 2px solid var(--accent);
+}
+
+main {
+  padding: 12px 16px 16px 16px;
+}
+
+.panel { display: none; }
+.panel.active { display: block; }
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.job-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+
+.job-card .job-name {
+  font-weight: 600;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.job-card .job-meta {
+  font-size: 12px;
+  color: var(--text-dim);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-card .job-cmd {
+  font-family: "Cascadia Mono", Consolas, monospace;
+  font-size: 10.5px;
+  color: var(--text-faint);
+  margin-top: 6px;
+  word-break: break-all;
+}
+
+.badge {
+  border-radius: 5px;
+  padding: 2px 9px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+
+.badge-running { background: var(--accent-soft); color: var(--accent); }
+.badge-pending { background: var(--bg-raised); color: var(--text-faint); }
+.badge-done { background: var(--ok-soft); color: var(--ok); }
+.badge-failed { background: var(--err-soft); color: var(--err); }
+
+.freshness {
+  font-size: 11px;
+  color: var(--text-faint);
+  margin: 2px 0 10px 0;
+}
+
+.empty {
+  color: var(--text-faint);
+  font-size: 13px;
+  padding: 24px 0;
+  text-align: center;
+}
+
+.run-picker-row {
+  margin: 8px 0 14px 0;
+}
+
+#run-picker {
+  width: 100%;
+  background: var(--bg-raised);
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.run-status {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 14px;
+  min-height: 20px;
+}
+
+.run-status .esr-big {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.run-status .verdict {
+  font-weight: 700;
+}
+
+.run-status .live-line {
+  width: 100%;
+  color: var(--accent);
+  font-size: 12.5px;
+}
+
+.canvas-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  padding: 10px 8px 14px 8px;
+  margin-bottom: 14px;
+}
+
+.canvas-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--text-faint);
+  text-transform: uppercase;
+  padding: 2px 8px 8px 8px;
+}
+
+canvas {
+  width: 100%;
+  display: block;
+}
+
+#dial-canvas { height: 260px; }
+#chart-canvas { height: 220px; }

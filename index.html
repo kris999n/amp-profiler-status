@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+  <title>Amp Profiler Status</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">Amp Profiler</div>
+    <nav class="tabs">
+      <button class="tab active" data-tab="queue">Queue</button>
+      <button class="tab" data-tab="run">Run</button>
+    </nav>
+  </header>
+
+  <main>
+    <p class="freshness" id="freshness"></p>
+
+    <section id="tab-queue" class="panel active">
+      <div id="queue-list" class="card-list">
+        <div class="empty">Loading…</div>
+      </div>
+    </section>
+
+    <section id="tab-run" class="panel">
+      <div class="run-picker-row">
+        <select id="run-picker"></select>
+      </div>
+
+      <div id="run-status" class="run-status"></div>
+
+      <div class="canvas-card">
+        <div class="canvas-title">Dial</div>
+        <canvas id="dial-canvas"></canvas>
+      </div>
+
+      <div class="canvas-card">
+        <div class="canvas-title">Chart</div>
+        <canvas id="chart-canvas"></canvas>
+      </div>
+    </section>
+  </main>
+
+  <script src="static.js"></script>
+  <script src="core.js"></script>
+</body>
+</html>
